@@ -18,7 +18,7 @@ class LoginLimiterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom( __DIR__ . '/config.php', 'login_limiter' );
+        $this->mergeConfigFrom(__DIR__ . '/config.php', 'login_limiter');
         Event::listen(
             \Illuminate\Auth\Events\Login::class,
             \MakeIT\LoginLimiter\LogoutOtherDevicesListener::class
@@ -32,11 +32,10 @@ class LoginLimiterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ( $this->app->runningInConsole() )
-        {
-            $this->publishes( [
-                __DIR__ . '/config.php' => config_path( 'login_limiter.php' ),
-            ], 'config' );
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/config.php' => config_path('login_limiter.php'),
+            ], 'config');
         }
     }
 

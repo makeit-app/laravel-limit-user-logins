@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\DB;
  * helpers
  * @package MakeIT\LoginLimiter
  */
-if ( !function_exists('login_limiter') )
-{
+if (!function_exists('login_limiter')) {
     /**
      * Destroy other device sessions
      *
@@ -15,9 +14,9 @@ if ( !function_exists('login_limiter') )
      */
     function login_limiter()
     {
-        if ( config( 'login_limiter.enabled' ) ) {
+        if (config('login_limiter.enabled')) {
             $pwd = request('password');
-            if ( !empty($pwd) ) {
+            if (!empty($pwd)) {
                 auth()->logoutOtherDevices($pwd);
                 if (config('session.driver') === 'database') {
                     DB::connection(config('session.connection'))->table(config('session.table', 'sessions'))

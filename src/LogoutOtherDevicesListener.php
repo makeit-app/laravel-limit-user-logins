@@ -2,9 +2,6 @@
 
 namespace MakeIT\LoginLimiter;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-
 /**
  * Class LogoutOtherDevicesListener
  * @package MakeIT\LoginLimiter
